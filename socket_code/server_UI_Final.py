@@ -5,22 +5,30 @@ import tkinter as tk
 from tkinter import scrolledtext
 from tkinter import font
 from threading import Thread
+import os
 
 # Server Setup
 HOST = '127.0.0.1'  # Server IP address
 PORT = 65432        # Port to listen on
 
-# Log File Configuration
-timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-log_file = f"server_keylog_{timestamp}.txt"
+def create_Log_File():
+    log_dir = "Server_Key_Logs"
+    if not os.path.exists(log_dir):
+        os.makedirs(log_dir)
 
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(message)s',
-    handlers=[
-        logging.FileHandler(log_file),
-    ]
-)
+
+    # Log File Configuration
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    log_file = os.path.join(log_dir, f"server_keylog_{timestamp}.txt")
+
+
+    logging.basicConfig(
+        level=logging.INFO,
+        format='%(asctime)s - %(message)s',
+        handlers=[
+            logging.FileHandler(log_file),
+        ]
+    )
 
 # Initialize the Tkinter window
 root = tk.Tk()
@@ -77,7 +85,7 @@ def start_server():
         conn, addr = server_socket.accept()
         update_status(f"Connected by {addr[0]}", color="green")
         update_text_display(f"[CONNECTED] Client connected: {addr}", "green")
-
+        create_Log_File()
         with conn:
             while True:
                 data = conn.recv(1024)

