@@ -2,7 +2,8 @@ import socket
 from pynput.keyboard import Key, Listener
 
 # Server Connection Configuration
-SERVER_HOST = '127.0.0.1'  # Server IP address
+# SERVER_HOST = '127.0.0.1'  # Server IP address
+SERVER_HOST = input("Enter Server Ip")  # Server IP address
 SERVER_PORT = 65432
 
 def start_client():

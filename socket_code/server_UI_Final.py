@@ -8,7 +8,7 @@ from threading import Thread
 import os
 
 # Server Setup
-HOST = '127.0.0.1'  # Server IP address
+HOST = '0.0.0.0'  # Server IP address
 PORT = 65432        # Port to listen on
 
 def create_Log_File():
