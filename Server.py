@@ -19,7 +19,8 @@ def create_Log_File():
 
     # Log File Configuration
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-    log_file = os.path.join(log_dir, f"server_keylog_{timestamp}.txt")
+    # log_file = os.path.join(log_dir, f"server_keylog_{timestamp}.txt")
+    log_file = os.path.join(log_dir, f"server_keylog.txt")
 
 
     logging.basicConfig(

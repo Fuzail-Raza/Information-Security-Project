@@ -1,7 +1,9 @@
 import re
+import os
 
 # File paths
-input_file = "S:\\Programms\\PYTHON\KeyLogger\\Server_Key_Logs\\server_keylog_20241104_171820.txt"  # Replace with your input log file
+print("Server_Key_Logs/server_keylog.txt")
+input_file = f"{os.curdir}\\Server_Key_Logs\\server_keylog.txt"  # Replace with your input log file
 output_file = "extracted_data.txt"  # Replace with the desired output file for extracted data
 
 def extract_data(input_file, output_file):
