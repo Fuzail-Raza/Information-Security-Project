@@ -3,3 +3,4 @@ Server_Key_Logs
 .gitignore
 pettify-96749-firebase-adminsdk-a4j7e-e5b7f8597c.json
 Flutter App
+uploadData.py
